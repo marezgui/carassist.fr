@@ -1,23 +1,58 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { Navbar, Nav, NavItem, NavbarBrand } from "react-bootstrap";
+import { MenuRounded } from "@material-ui/icons";
 
 const NavBar = () => {
-    return (
-        <>
-        <ul>
-            <li>
-            <Link to="/">Home</Link>
-            </li>
-            <li>
-            <Link to="/about">About</Link>
-            </li>
-            <li>
-            <Link to="/dashboard">Dashboard</Link>
-            </li>
-        </ul>
+    const bsNavStyle = {
+        className: 'nav-link',
+        role: 'button'
+    };
 
-        <hr />
-        </>
+    return (
+      <>
+        <Navbar
+          bg="dark"
+          expand="md"
+          variant="dark"
+          sticky="bottom"
+          collapseOnSelect
+        >
+          <Navbar.Toggle>
+            <MenuRounded />
+          </Navbar.Toggle>
+
+          <NavbarBrand>Car Assist</NavbarBrand>
+
+          <Navbar.Collapse>
+            <Nav navbar>
+              <NavItem>
+                <Link to="/" {...bsNavStyle}>
+                  Accueil
+                </Link>
+              </NavItem>
+
+              <NavItem>
+                <Link to="/cars" {...bsNavStyle}>
+                  Véhicules
+                </Link>
+              </NavItem>
+
+              <NavItem>
+                <Link to="/garage" {...bsNavStyle}>
+                  Le Garage
+                </Link>
+              </NavItem>
+
+              <NavItem>
+                <Link to="/contact" {...bsNavStyle}>
+                  Contact
+                </Link>
+              </NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </>
     );
 };
 

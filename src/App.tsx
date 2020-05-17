@@ -3,30 +3,27 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './routes/Home/Home';
 import NavBar from './components/NavBar/NavBar';
 
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
-
 export default function BasicExample() {
   return (
     <Router>
       <div>
         <NavBar />
-        
+
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about">
-            <About />
+          
+          <Route path="/cars">
+            <Cars />
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
+
+          <Route path="/garage">
+            <Garage />
+          </Route>
+
+          <Route path="/contact">
+            <Contact />
           </Route>
         </Switch>
       </div>
@@ -34,18 +31,26 @@ export default function BasicExample() {
   );
 }
 
-function About() {
+function Cars() {
   return (
     <div>
-      <h2>About</h2>
+      <h2>Véhicules</h2>
     </div>
   );
 }
 
-function Dashboard() {
+function Garage() {
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h2>Le Garage</h2>
+    </div>
+  );
+}
+
+function Contact() {
+  return (
+    <div>
+      <h2>Contact</h2>
     </div>
   );
 }
