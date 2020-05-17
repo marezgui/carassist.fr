@@ -1,0 +1,55 @@
+/* Customizations */
+$theme-colors: (
+    "dark": #091129
+);
+
+$body-bg: #f7f7f7;
+
+/* NavBar Dark */
+$navbar-dark-hover-color: rgba(255, 255, 255, 1);
+
+/* Navbar Dark - Toggler */
+$navbar-dark-color: rgba(255, 255, 255, 0.8);
+$navbar-dark-toggler-border-color: rgba(255, 255, 255, 0.8);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* Supplements */
+.navbar-dark {
+  .navbar-nav {
+    .nav-link {
+      @include media-breakpoint-up(md) {
+        padding-right: 1.5rem;
+      }
+    }
+    .nav-link.active {
+      opacity: 1;
+      background-color: #292f3d;
+      box-shadow: inset 2px 0px 0 0 #fff;
+
+      @include media-breakpoint-up(md) {
+        box-shadow: inset 0px -2px 0 0 #fff;
+      }
+    }
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap');
+
+:focus {
+  outline: none !important;
+}
+
+// body {
+//   margin: 0;
+//   font-family: 'Balsamiq Sans', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }
