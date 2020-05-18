@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './routes/Home/Home';
-import NavBar from './components/NavBar/NavBar';
+import Cars from "./routes/Cars/Cars";
+import Garage from "./routes/Garage/Garage";
+import Contact from "./routes/Contact/Contact";
 
 export default function BasicExample() {
   return (
     <Router>
-      <div>
-        <NavBar />
-
+      <>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -26,31 +26,7 @@ export default function BasicExample() {
             <Contact />
           </Route>
         </Switch>
-      </div>
+      </>
     </Router>
-  );
-}
-
-function Cars() {
-  return (
-    <div>
-      <h2>Véhicules</h2>
-    </div>
-  );
-}
-
-function Garage() {
-  return (
-    <div>
-      <h2>Le Garage</h2>
-    </div>
-  );
-}
-
-function Contact() {
-  return (
-    <div>
-      <h2>Contact</h2>
-    </div>
   );
 }
