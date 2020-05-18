@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem, NavbarBrand, Container } from "react-bootstrap";
 import { MenuRounded, CloseRounded } from "@material-ui/icons";
+import styled from 'styled-components';
+import Logo from './LogoSvg';
+
+const BrandText = styled.div`
+  font-size: 24px;
+  font-family: "Kanit", sans-serif;
+`;
 
 const NavBar = () => {
     const [expanded, setExpanded] = useState(false);
@@ -17,54 +24,53 @@ const NavBar = () => {
     }
 
     return (
-      <>
-        <Navbar
-          bg="dark"
-          expand="md"
-          variant="dark"
-          sticky="top"
-          collapseOnSelect
-          onToggle={onToggle}
-        >
-          <Container>
-            <NavbarBrand className="border border-danger p-2 font-weight-bold">
-              Car Assist
-            </NavbarBrand>
+      <Navbar
+        bg="dark"
+        expand="md"
+        variant="dark"
+        sticky="top"
+        collapseOnSelect
+        onToggle={onToggle}
+      >
+        <Container>
+          <NavbarBrand className="p-2 font-weight-bold d-flex justify-content-center align-items-center">
+            <Logo />
+            <BrandText className="ml-2"> CAR ASSIST </BrandText>
+          </NavbarBrand>
 
-            <Navbar.Toggle>
-              {!expanded ? <MenuRounded /> : <CloseRounded />}
-            </Navbar.Toggle>
+          <Navbar.Toggle>
+            {!expanded ? <MenuRounded /> : <CloseRounded />}
+          </Navbar.Toggle>
 
-            <Navbar.Collapse>
-              <Nav navbar className="ml-auto">
-                <NavItem>
-                  <NavLink exact to="/" {...bsNavStyle}>
-                    Accueil
-                  </NavLink>
-                </NavItem>
+          <Navbar.Collapse>
+            <Nav navbar className="ml-auto">
+              <NavItem>
+                <NavLink exact to="/" {...bsNavStyle}>
+                  Accueil
+                </NavLink>
+              </NavItem>
 
-                <NavItem>
-                  <NavLink to="/cars" {...bsNavStyle}>
-                    Véhicules
-                  </NavLink>
-                </NavItem>
+              <NavItem>
+                <NavLink to="/cars" {...bsNavStyle}>
+                  Véhicules
+                </NavLink>
+              </NavItem>
 
-                <NavItem>
-                  <NavLink to="/garage" {...bsNavStyle}>
-                    Le Garage
-                  </NavLink>
-                </NavItem>
+              <NavItem>
+                <NavLink to="/garage" {...bsNavStyle}>
+                  Le Garage
+                </NavLink>
+              </NavItem>
 
-                <NavItem>
-                  <NavLink to="/contact" {...bsNavStyle}>
-                    Contact
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </>
+              <NavItem>
+                <NavLink to="/contact" {...bsNavStyle}>
+                  Contact
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     );
 };
 
