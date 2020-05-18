@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Image } from 'react-bootstrap';
 import styled from 'styled-components';
-import { toJson } from 'unsplash-js';
-import { unsplash } from '../../api/unsplash';
+// import { toJson } from 'unsplash-js';
+// import { unsplash } from '../../api/unsplash';
 
 interface Props {
   bg?: string,
@@ -36,6 +35,19 @@ const Overlay = styled.div`
   background-color: rgba(9, 17, 41, 0.5);
 `;
 
+// const ImgContainer = styled.div`
+//   position: absolute;
+//   z-index: -1;
+//   top: 0px;
+//   left: 0px;
+//   bottom: 0px;
+//   right: 0px;
+//   -webkit-mask-image: -webkit-radial-gradient(center, white, rgb(0, 0, 0));
+//   background-color: rgba(37, 59, 86, 0.8);
+//   border-radius: inherit;
+//   overflow: hidden;
+// `;
+
 const Hero = (props: Props) => {
     const { pageTitle } = props;
     // const [randomPic, setRandomPic] = useState('');
@@ -52,6 +64,13 @@ const Hero = (props: Props) => {
     return (
       <HeroContainer>
         <Overlay />
+        {/* <ImgContainer>
+          <img
+            src="https://source.unsplash.com/AHnhdjyTNGM/1600x900"
+            height="100%"
+            width="100%"
+          />
+        </ImgContainer> */}
         <TitleContainer>{pageTitle}</TitleContainer>
       </HeroContainer>
     );
