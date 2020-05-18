@@ -15,7 +15,7 @@ const Fab = () => {
       <Button
         as="a"
         href="tel:+33766485866"
-        className="ml-md-4 mb-md-4 ml-2 mb-2 d-flex justify-content-center align-items-center"
+        className="ml-md-4 mb-md-4 ml-3 mb-3 d-flex justify-content-center align-items-center"
         style={{ height: "50px", width: "50px", borderRadius: "50%" }}
       >
         <CallIcon />
