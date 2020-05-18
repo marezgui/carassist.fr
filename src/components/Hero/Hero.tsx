@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { renderToStaticMarkup } from "react-dom/server";
 import styled from 'styled-components';
 // import { toJson } from 'unsplash-js';
 // import { unsplash } from '../../api/unsplash';
+import RoundedSvg from "../Icons/RoundedSvg";
+
+const svgString = encodeURIComponent(renderToStaticMarkup(<RoundedSvg />));
 
 interface Props {
   bg?: string,
@@ -16,6 +20,7 @@ const TitleContainer = styled.div`
 `;
 
 const HeroContainer = styled("div")`
+  overflow: hidden;
   position: relative;
   z-index: 1;
   height: 20%;
@@ -23,6 +28,22 @@ const HeroContainer = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const ElipsedBorder = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translate(-8%, 1px);
+  z-index: 2;
+  height: 100%;
+  width: 120%;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,${svgString}");
+  background-repeat: no-repeat;
+  background-position: bottom;
 `;
 
 const Overlay = styled.div`
@@ -72,6 +93,7 @@ const Hero = (props: Props) => {
           />
         </ImgContainer> */}
         <TitleContainer>{pageTitle}</TitleContainer>
+        <ElipsedBorder />
       </HeroContainer>
     );
 };
