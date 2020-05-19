@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem, NavbarBrand, Container } from "react-bootstrap";
 import { MenuRounded, CloseRounded } from "@material-ui/icons";
 import styled from 'styled-components';
-import Logo from './LogoSvg';
+import Logo from '../Icons/Logo';
 
 const BrandText = styled.div`
   font-size: 24px;
@@ -34,7 +34,7 @@ const NavBar = () => {
       >
         <Container>
           <NavbarBrand className="p-2 font-weight-bold d-flex justify-content-center align-items-center">
-            <Logo />
+            <Logo fill='#FFF' />
             <BrandText className="ml-2"> CAR ASSIST </BrandText>
           </NavbarBrand>
 
