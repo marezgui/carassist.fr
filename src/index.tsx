@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './design/index.scss';
 import App from './App';
-// import { ThemeProvider } from "theme-ui";
-// import theme from "./theme";
 import * as serviceWorker from './serviceWorker';
 
 
