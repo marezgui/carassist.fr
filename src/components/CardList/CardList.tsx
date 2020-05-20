@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from '../Card/Card';
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import Grid, { GridSpacing } from "@material-ui/core/Grid";
 
 interface Props {
     data?: object[] 
 }
 
-const Wrapper = styled.div`
-  border: 1px red;
-  margin-top: 24px;
-  border: 1px solid;
-`;
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      marginTop: "24px",
+      margin: 'auto'
+    }
+  })
+);
 
 const isNotEmpty = (data: object[]) => {
     let obj = data[0];
@@ -19,15 +24,16 @@ const isNotEmpty = (data: object[]) => {
 
 const CardList = (props: Props) => {
     const { data } = props;
+    const classes = useStyles();
 
     return (
-        <Wrapper>
+        <Grid className={classes.root} container justify="center" spacing={2} xs={12}>
             {data && isNotEmpty(data) && data?.map((vehicule: any) => {
                 const { id, title, description, src } = vehicule;
 
-                return <Card key={id} src={src} title={title} description={description} />;
+                return <Grid key={id} item> <Card key={id} src={src} title={title} description={description} />  </Grid>;
             })}
-        </Wrapper>
+        </Grid>
     );
 };
 
