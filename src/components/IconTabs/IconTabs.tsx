@@ -7,7 +7,8 @@ import Truck from "../Icons/Truck";
 import styled from "styled-components";
 
 interface Props {
-  className?: string 
+  className?: string,
+  onTabsChangeCallback: any
 }
 
 const StyledPaper = styled(Paper)`
@@ -44,10 +45,13 @@ const StyledTab = styled(Tab).attrs({
 `;
 
 export default function IconTabs(props: Props) {
-  const [value, setValue] = React.useState(0);
+  const { onTabsChangeCallback } = props;
+  const defaultValue = 'car'
+  const [value, setValue] = React.useState(defaultValue);
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
     setValue(newValue);
+    onTabsChangeCallback(newValue);
   };
 
   return (
@@ -59,8 +63,8 @@ export default function IconTabs(props: Props) {
         aria-label="icon tabs example"
         classes={{ indicator: "indicator" }}
       >
-        <StyledTab icon={<Logo />} aria-label="phone" />
-        <StyledTab icon={<Truck />} aria-label="favorite" />
+        <StyledTab value='car' icon={<Logo />} aria-label="phone" />
+        <StyledTab value='truck' icon={<Truck />} aria-label="favorite" />
       </StyledTabs>
     </StyledPaper>
   );
