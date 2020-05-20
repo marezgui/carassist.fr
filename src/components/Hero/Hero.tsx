@@ -28,6 +28,7 @@ const HeroContainer = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #f7f7f7;
 `;
 
 const ElipsedBorder = styled.div`
