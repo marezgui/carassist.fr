@@ -11,8 +11,8 @@ const FabContainer = styled.div.attrs({
 const SyledButton = styled(Button).attrs({
   className: "ml-md-4 mb-md-4 ml-3 mb-3 d-flex justify-content-center align-items-center shadow"
 })`
-  height: 55px;
-  width: 55px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background-image: linear-gradient(72deg, #0033cc 0%, #005bff 100%);
   border: 2px solid white;
