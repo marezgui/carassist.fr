@@ -1,4 +1,10 @@
 node_modules
 build
+.env
 .firebase
+
+*.log
+functions/lib
+serviceAccount.json
+
 TODO

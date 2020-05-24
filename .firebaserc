@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "carassist-a870c"
+    "default": "carassist-a870c",
+    "car-assist": "car-assist-278209"
   }
 }
