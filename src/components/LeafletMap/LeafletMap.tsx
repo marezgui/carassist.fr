@@ -19,25 +19,34 @@ type State = {
 
 class SimpleExample extends Component<{}, State> {
   state = {
-    lat: 48.87,
-    lng: 2.304,
-    zoom: 13,
+    lat: 48.87159,
+    lng: 2.3062,
+    zoom: 12,
   };
 
   render() {
     const position: [number, number] = [this.state.lat, this.state.lng];
 
+    // const notIteractive = {
+    //   zoomControl: false, 
+    //   touchZoom: false, 
+    //   scrollWheelZoom: false, 
+    //   keyboard: false,
+    //   dragging: false,
+    //   doubleClickZoom: false,
+    //   boxZoom: false
+    // }
+
     return (
-      <StyledMap center={position} zoom={this.state.zoom}>
+      <StyledMap
+        center={position} 
+        zoom={this.state.zoom} 
+      >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        <Marker position={position} />
       </StyledMap>
     );
   }

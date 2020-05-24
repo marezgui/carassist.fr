@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from 'react-bootstrap';
 import CallIcon from "@material-ui/icons/Call";
 import styled from 'styled-components';
-import { mediaBreakpointUpSm } from "../../design/breakpoints";
+import { mediaBreakpointUpSm } from "../../theme/breakpoints";
 
 const FabContainer = styled.div.attrs({
   className: "position-fixed fixed-bottom d-flex justify-content-start",
