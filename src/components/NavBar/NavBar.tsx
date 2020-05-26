@@ -51,20 +51,20 @@ const NavBar = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink to="/cars" {...bsNavStyle}>
-                  Véhicules
+                <NavLink to="/location" {...bsNavStyle}>
+                  Location
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/depannage" {...bsNavStyle}>
+                  Dépannage
                 </NavLink>
               </NavItem>
 
               <NavItem>
                 <NavLink to="/garage" {...bsNavStyle}>
                   Le Garage
-                </NavLink>
-              </NavItem>
-
-              <NavItem>
-                <NavLink to="/contact" {...bsNavStyle}>
-                  Contact
                 </NavLink>
               </NavItem>
             </Nav>

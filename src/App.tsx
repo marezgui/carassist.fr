@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './routes/Home/Home';
-import Cars from "./routes/Cars/Cars";
+import Rent from "./routes/Rent/Rent";
+import Tow from "./routes/Tow/Tow";
 import Garage from "./routes/Garage/Garage";
-import Contact from "./routes/Contact/Contact";
 
 export default function BasicExample() {
   return (
@@ -14,16 +14,16 @@ export default function BasicExample() {
             <Home />
           </Route>
           
-          <Route path="/cars">
-            <Cars />
+          <Route path="/location">
+            <Rent />
+          </Route>
+
+          <Route path="/depannage">
+            <Tow />
           </Route>
 
           <Route path="/garage">
             <Garage />
-          </Route>
-
-          <Route path="/contact">
-            <Contact />
           </Route>
         </Switch>
       </>
