@@ -17,7 +17,7 @@ const priceDetails = '(Prise en charge 50€ + coefficient kilometrique: Citadin
 const libraries = ['places'];
 
 const AutoCompleteOptions = {
-  componentRestrictions: { country: "fr" },
+  componentRestrictions: { country: ["fr", "be", "it", "ch", "nl", 'de'] },
 };
 
 let originAutocomplete: any = null;
