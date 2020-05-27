@@ -1,0 +1,22 @@
+{  
+"destination_addresses": ["Strasbourg, France"],
+  "origin_addresses": ["Paris, France"],
+  "rows": [
+    {
+      "elements": [
+        {
+          "distance": {
+            "text": "491 km",
+            "value": 491327
+          },
+          "duration": {
+            "text": "4 heures 39 minutes",
+            "value": 16749
+          },
+          "status": "OK"
+        }
+      ]
+    }
+  ],
+  "status": "OK"
+}

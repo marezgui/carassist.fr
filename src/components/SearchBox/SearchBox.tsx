@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { LoadScript, Autocomplete, DistanceMatrixService } from "@react-google-maps/api";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Paper } from "@material-ui/core";
 import { googleMapsApiKey } from '../../api/credentials';
-import MyModal from '../Modal/Modal';
+import ScrollDialog from "../Modal/Modal";
+import { getPrice, isNotEmptyObj } from '../../libft';
+import { Alert } from 'react-bootstrap';
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import NativeSelect from "@material-ui/core/NativeSelect";
+import InputLabel from "@material-ui/core/InputLabel";
+
+const mentions = 'Le tarif de votre remorquage professionel dépend de la distance à effectuer entre le point de départ et celui de destination.';
+
+const priceDetails = '(Prise en charge 50€ + coefficient kilometrique: Citadine = 1,4€, Berline: 1,6€, 4x4: 2€)';
 
 const libraries = ['places'];
 
@@ -13,28 +23,7 @@ const AutoCompleteOptions = {
 let originAutocomplete: any = null;
 let destinationAutocomplete: any = null;
 
-let mockDistance = {
-  destination_addresses: ["Strasbourg, France"],
-  origin_addresses: ["Paris, France"],
-  rows: [
-    {
-      elements: [
-        {
-          distance: {
-            text: "491 km",
-            value: 491327,
-          },
-          duration: {
-            text: "4 heures 39 minutes",
-            value: 16749,
-          },
-          status: "OK",
-        },
-      ],
-    },
-  ],
-  status: "OK",
-};
+type vehiculeType=  'BASIC' | 'SEDAN' | 'SUV'
 
 const SearchBox = ({ position }: any) => {
     const [originInput, setOriginInput] = useState('');
@@ -42,15 +31,25 @@ const SearchBox = ({ position }: any) => {
     const [originPlace, setOriginPlace] = useState(null);
     const [destinationPlace, setDestinationPlace] = useState(null);
     const [ready, setReady] = useState(false);
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState<number>(0);
     const [modalShow, setModalShow] = useState(false);
-    const [distance, setDistance] = useState({ value: 0 });
+    const [distance, setDistance] = useState<{} | any>({});
+    const [type, setType] = useState<vehiculeType>("BASIC");
 
     useEffect(() => {
         if (originPlace && destinationPlace) {
             setReady(true);
         }
     }, [originPlace, destinationPlace]);
+
+    useEffect(() => {
+      if (isNotEmptyObj(distance)) {
+        if (distance.hasOwnProperty("value")) {
+          let price = getPrice(distance.value, type);
+          setPrice(price);
+        }
+      }
+    }, [distance, type]);
     
     const onOriginLoad = (autocomplete: any) => {
       originAutocomplete = autocomplete;
@@ -83,7 +82,9 @@ const SearchBox = ({ position }: any) => {
         console.log('=>',response, '=>', status);
 
         if (status === "OK") // 'NOT_FOUND'
-            setDistance(response.rows[0].elements[0].distance);
+        {
+          setDistance(response.rows[0].elements[0].distance);
+        }
     };
 
     const handleSubmit = () => {
@@ -120,6 +121,25 @@ const SearchBox = ({ position }: any) => {
           />
         </Autocomplete>
 
+        <FormControl style={{ minWidth: "150px", marginTop: "24px" }}>
+          <InputLabel htmlFor="uncontrolled-native">Véhicule</InputLabel>
+          <NativeSelect
+            defaultValue={"BASIC"}
+            onChange={(e) => {
+              setType(e.target.value as vehiculeType);
+            }}
+            inputProps={{
+              name: "Type",
+              id: "uncontrolled-native",
+            }}
+          >
+            <option value={"BASIC"}>Citadine</option>
+            <option value={"SEDAN"}>Berline</option>
+            <option value={"SUV"}>Monospace / 4x4</option>
+          </NativeSelect>
+          <FormHelperText> Type de Véhicule </FormHelperText>
+        </FormControl>
+
         <Button
           style={{ marginTop: "24px" }}
           variant="contained"
@@ -131,14 +151,31 @@ const SearchBox = ({ position }: any) => {
           Calculer le prix
         </Button>
 
-        <MyModal
-          show={modalShow}
-          onHide={() => {
+        <ScrollDialog
+          open={modalShow}
+          onClose={() => {
             setModalShow(false);
             setReady(true);
           }}
-          price={ distance.value ? Math.floor((distance.value / 1000) * 2) : 'Erreur lors du calcul.'}
-        />
+        >
+          <Alert variant="info">
+            <p> Départ: </p>
+            <p> {originPlace} </p>
+            <p> Destination: </p>
+            <p> {destinationPlace} </p>
+            <p> Type de véhicule: {type === 'SEDAN' ? 'Berline' : type === 'SUV' ? 'Monospace / 4x4' : 'Citadine'} </p>
+          </Alert>
+          <Alert
+            variant="primary"
+            style={{ width: "fit-content", margin: "auto" }}
+          >
+            {`${price} €`}
+          </Alert>
+          <Alert variant="light">
+            <p style={{ fontSize: "12px" }}>{mentions}</p>
+            <p style={{ fontSize: "10px" }}>{priceDetails}</p>
+          </Alert>
+        </ScrollDialog>
 
         {ready && modalShow && (
           <DistanceMatrixService
