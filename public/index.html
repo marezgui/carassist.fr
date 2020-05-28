@@ -24,22 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-      crossorigin="" /> -->
-      
-    <!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-      crossorigin=""></script> -->
-      <!-- unpkg, production (minified) -->
-      <!-- <script src="https://unpkg.com/react-leaflet/dist/react-leaflet.min.js"></script> -->
-      <!-- unpkg, development -->
-      <!-- <script src="https://unpkg.com/react-leaflet/dist/react-leaflet.js"></script> -->
-      <!-- CDNJS, production (minified) -->
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-leaflet/2.0.0/react-leaflet.min.js"></script> -->
-      <!-- CDNJS, development -->
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-leaflet/2.0.0/react-leaflet.js"></script> -->
-    <title> CarAssist Paris</title>
+    <title> Car Assist Paris</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -56,13 +41,26 @@
     -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
     
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="/__/firebase/7.14.5/firebase-analytics.js"></script>
+    <!-- Firebase products -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
     
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCQ1IqRrN9U1cDGMcsl4AmOuHjnt8Q3tZQ",
+        authDomain: "car-assist-278209.firebaseapp.com",
+        databaseURL: "https://car-assist-278209.firebaseio.com",
+        projectId: "car-assist-278209",
+        storageBucket: "car-assist-278209.appspot.com",
+        messagingSenderId: "727227649777",
+        appId: "1:727227649777:web:bd57547188045aafade350",
+        measurementId: "G-1NC608EKKP"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
