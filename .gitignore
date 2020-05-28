@@ -5,6 +5,6 @@ build
 
 *.log
 functions/lib
-serviceAccount.json
+serviceAccountKey.json
 
 TODO
