@@ -7,9 +7,10 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
+import Slider from '../Slider/Slider';
 
 interface Props {
-  src?: string,
+  images?: object[],
   title?: string,
   description?: string
 }
@@ -22,28 +23,31 @@ const useStyles = makeStyles({
     borderRadius: 12
   },
   media: {
-    height: 175,
   },
 });
 
-const MuiCard = ({ src, title, description }: Props) => {
+const MuiCard = ({ images, title, description }: Props) => {
     const classes = useStyles();
     
     return (
       <Card className={classes.root}>
-          <CardMedia
-            className={classes.media}
-            image={src}
-            title={title}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
-            </Typography>
-            {/* <Typography variant="body1" color="textSecondary" component="p">
+        <CardMedia className={classes.media}>
+          <Slider>
+            {images?.map((image: any) => {
+              const { src, alt } = image;
+
+              return <img key={alt} src={src} alt={alt} />;
+            })}
+          </Slider>
+        </CardMedia>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {title}
+          </Typography>
+          {/* <Typography variant="body1" color="textSecondary" component="p">
               {description}
             </Typography> */}
-          </CardContent>
+        </CardContent>
         {/* <CardActions>
           <Button size="small" color="primary">
             Share

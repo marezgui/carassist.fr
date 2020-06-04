@@ -29,9 +29,9 @@ const CardList = (props: Props) => {
     return (
         <Grid className={classes.root} container justify="center" spacing={2} xs={12}>
             {data && isNotEmpty(data) && data?.map((vehicule: any) => {
-                const { id, title, description, src } = vehicule;
+                const { id, title, description, images } = vehicule;
 
-                return <Grid key={id} item> <Card key={id} src={src} title={title} description={description} />  </Grid>;
+                return <Grid key={id} item> <Card key={id} images={images} title={title} description={description} />  </Grid>;
             })}
         </Grid>
     );
