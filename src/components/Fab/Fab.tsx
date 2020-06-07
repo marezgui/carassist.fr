@@ -4,15 +4,12 @@ import CallIcon from "@material-ui/icons/Call";
 import styled from 'styled-components';
 import { mediaBreakpointUpSm } from "../../theme/breakpoints";
 
-const FabContainer = styled.div.attrs({
-  className: "position-fixed fixed-bottom d-flex justify-content-start",
-})`
-  width: fit-content;
-`;
-
 const SyledButton = styled(Button).attrs({
   className: "ml-md-4 mb-md-4 ml-3 mb-3 d-flex justify-content-center align-items-center shadow"
 })`
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -38,14 +35,12 @@ const PhoneNumber = styled.span`
 
 const Fab = () => {
   return (
-    <FabContainer>
       <SyledButton
         href="tel:+33766485866"
       >
         <CallIcon />
         <PhoneNumber> 07 66 48 58 66 </PhoneNumber>
       </SyledButton>
-    </FabContainer>
   );
 }
 
