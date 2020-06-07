@@ -42,7 +42,7 @@ const ElipsedBorder = styled.div`
   height: 100%;
   width: 120%;
   background-size: contain;
-  background-image: url("data:image/svg+xml,${svgString}");
+  /* background-image: url("data:image/svg+xml,${svgString}"); */
   background-repeat: no-repeat;
   background-position: bottom;
 `;

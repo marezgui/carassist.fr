@@ -1,63 +1,58 @@
-import React from 'react';
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@material-ui/core";
-import Slider from '../Slider/Slider';
+import React from "react";
+import Slider from "../Slider/Slider";
+import { Card, StyledRoot, StyledTitle } from "baseui/card";
+import { styled } from "baseui";
 
 interface Props {
-  images?: object[],
-  title?: string,
-  description?: string
+  images?: object[];
+  title?: string;
+  description?: string;
 }
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 312,
-    width: 312,
-    height: '100%',
-    borderRadius: 12
-  },
-  media: {
-  },
-});
+const StyledCard = styled(Card, ({ $theme }) => ({
+  maxWidth: '312px',
+  width: '312px',
+  height: "100%"
+}));
 
-const MuiCard = ({ images, title, description }: Props) => {
-    const classes = useStyles();
-    
-    return (
-      <Card className={classes.root}>
-        <CardMedia className={classes.media}>
-          <Slider>
-            {images?.map((image: any) => {
-              const { src, alt } = image;
+const MuiCard = ({ images, title }: Props) => {
+  return (
+    <Card
+      overrides={{
+        Root: {
+          style: {
+            width: "312px",
+            height: "100%",
+          },
+        },
+        Contents: {
+          style: {
+            margin: 0,
+            border: "2px solid",
+          },
+        },
+        Body: {
+          style: {
+            border: "2px solid red",
+          },
+        },
+        Title: {
+          style: {
+            border: "2px solid red",
+          },
+        },
+      }}
+    >
+      <Slider>
+        {images?.map((image: any) => {
+          const { src, alt } = image;
 
-              return <img key={alt} src={src} alt={alt} />;
-            })}
-          </Slider>
-        </CardMedia>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {title}
-          </Typography>
-          {/* <Typography variant="body1" color="textSecondary" component="p">
-              {description}
-            </Typography> */}
-        </CardContent>
-        {/* <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions> */}
-      </Card>
-    );
+          return <img key={alt} src={src} alt={alt} />;
+        })}
+      </Slider>
+      <StyledTitle>{title}</StyledTitle>
+    </Card>
+  );
 };
 
 export default MuiCard;
