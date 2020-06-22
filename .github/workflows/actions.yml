@@ -13,6 +13,8 @@ on:
 jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
+    env:
+        REACT_APP_MAPS_API_KEY_PROD: ${{ secrets.MAPS_API_KEY_PROD }}
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
