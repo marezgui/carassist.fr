@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import PageLayout from '../../components/Layout/Page/Page';
-import { Paper } from '@material-ui/core';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Paper, Grid } from '@material-ui/core';
 import Maps from '../../components/Map/Map';
 
-const Location = styled(Container)`
+
+
+const Location = styled(Grid)`
   margin-top: 24px;
 `;
 
@@ -18,25 +19,25 @@ const Address = styled.div``;
 const Home = () => {
     return (
       <PageLayout pageTitle="Accueil">
-        <Location>
-          <Row md="2" xs="1">
-            <Col>
-              <StyledPaper>
-                <Maps />
-              </StyledPaper>
-            </Col>
+        <div style={{ padding: '8px' }}>
+          <Location container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <StyledPaper>
+                  <Maps />
+                </StyledPaper>
+              </Grid>
 
-            <Col>
-              <Address>
-                <h2> Adresse </h2>
-                <p style={{ display: "flex", flexDirection: "column" }}>
-                  <span> 49 RUE DE PONTHIEU </span>
-                  <span> 75008 Paris </span>
-                </p>
-              </Address>
-            </Col>
-          </Row>
-        </Location>
+              <Grid item xs={12} sm={6}>
+                <Address>
+                  <h2> Adresse </h2>
+                  <p style={{ display: "flex", flexDirection: "column" }}>
+                    <span> 49 RUE DE PONTHIEU </span>
+                    <span> 75008 Paris </span>
+                  </p>
+                </Address>
+              </Grid>
+          </Location>
+        </div>
       </PageLayout>
     );
 };
