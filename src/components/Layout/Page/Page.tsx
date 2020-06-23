@@ -3,9 +3,10 @@ import Hero from '../../Hero/Hero';
 import NavBar from '../../NavBar/NavBar';
 import styled from 'styled-components';
 import Fab from '../../Fab/Fab';
+import { Container } from '@material-ui/core'
 
-const PageContent = styled.div`
-
+const PageContent = styled(Container)`
+  max-width: 984px;
 `;
 
 const Page = (props: any) => {
@@ -16,7 +17,7 @@ const Page = (props: any) => {
         <NavBar />
         <Hero pageTitle={pageTitle}/>
         <Fab />
-        <PageContent>
+        <PageContent disableGutters>
           {children}
         </PageContent>
       </>
