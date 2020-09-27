@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Home from './routes/Home/Home';
 import Rent from "./routes/Rent/Rent";
 import Tow from "./routes/Tow/Tow";
+import Garage from "./routes/Garage/Garage";
 
 export default function BasicExample() {
   return (
@@ -16,9 +17,13 @@ export default function BasicExample() {
           <Route path="/location">
             <Rent />
           </Route>
-
+          
           <Route path="/depannage">
             <Tow />
+          </Route>
+
+          <Route path="/garage">
+            <Garage />
           </Route>
 
           <Redirect to='/' />

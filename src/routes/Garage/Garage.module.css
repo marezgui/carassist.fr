@@ -1,0 +1,13 @@
+.InfoFrontImg {
+    height: 600px;
+    width: 900px;
+    position: relative;
+    margin: auto;
+    max-width: 100%;
+}
+
+@media (max-height: 800px) {
+    .InfoFrontImg {
+        height: 400px;
+    }
+}

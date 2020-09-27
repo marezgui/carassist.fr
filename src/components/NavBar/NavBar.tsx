@@ -61,6 +61,13 @@ const NavBar = () => {
                   Dépannage
                 </NavLink>
               </NavItem>
+
+              <NavItem>
+                <NavLink to="/garage" {...bsNavStyle}>
+                  Garage
+                </NavLink>
+              </NavItem>
+
             </Nav>
           </Navbar.Collapse>
         </Container>
