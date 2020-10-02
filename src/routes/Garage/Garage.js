@@ -9,6 +9,7 @@ import FbLogo from '../../components/LogoSocialNetwork/facebook.svg';
 import LogoSocialNetwork from '../../components/LogoSocialNetwork/LogoSocialNetwork';
 import { fbURL,instaURL } from '../../components/LogoSocialNetwork/URLs';
 import InstaLogo from '../../components/LogoSocialNetwork/instagram.svg';
+import CardServiceSlider from '../../components/CardServiceSlider/CardServiceSlider';
 
 const garage = () => {
   return (
@@ -23,6 +24,8 @@ const garage = () => {
             <InfoGarage />
             <ImgFrontGarage />
         </div>
+
+        <CardServiceSlider />
     </div>
   );
 };
