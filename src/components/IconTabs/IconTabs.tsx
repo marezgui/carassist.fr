@@ -12,17 +12,20 @@ interface Props {
 }
 
 const StyledPaper = styled(Paper)`
-  border-radius: 32px;
+  border-radius: 8px;
   width: fit-content;
   margin: auto;
   border: 2px solid #FFF;
+  position: relative;
+  padding: 2px;
 `;
 
 const StyledTabs = styled(Tabs)`
   .indicator {
     background-image: linear-gradient(72deg, #0033cc 0%, #005bff 100%);
-    height: 100%;
-    border-radius: 32px;
+    height: 6px;
+    max-width: 50%;
+    border-radius: 12px;
   }
 `;
 
@@ -31,17 +34,27 @@ const StyledTab = styled(Tab).attrs({
     selected: "selected",
   },
 })`
-  border-radius: 32px;
+  border-radius: 8px;
 
   &.selected {
     svg {
       path {
-        fill: #fff;
+        fill: #000;
       }
     }
   }
 
   z-index: 1;
+`;
+
+const ProgressBar = styled('div')`
+    background: rgba(32, 34, 73, 0.1);
+    border-radius: 12px;
+    height: 3px;
+    width: calc(100% - 5px);
+    position: absolute;
+    bottom: 4px;
+    left: 3px;
 `;
 
 export default function IconTabs(props: Props) {
@@ -55,7 +68,8 @@ export default function IconTabs(props: Props) {
   };
 
   return (
-    <StyledPaper elevation={8} square>
+    <StyledPaper elevation={2} square>
+      <ProgressBar />
       <StyledTabs
         value={value}
         onChange={handleChange}
