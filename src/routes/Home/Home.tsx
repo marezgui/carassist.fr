@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PageLayout from '../../components/Layout/Page/Page';
 import { Paper, Grid } from '@material-ui/core';
 import Maps from '../../components/Map/Map';
-
+import ServicesLinks from '../../components/ServicesLinks/ServicesLinks';
 
 
 const Location = styled(Grid)`
@@ -19,6 +19,7 @@ const Address = styled.div``;
 const Home = () => {
     return (
       <PageLayout pageTitle="Accueil">
+        <ServicesLinks />
         <div style={{ padding: '8px' }}>
           <Location container spacing={2}>
               <Grid item xs={12} sm={6}>

@@ -23,7 +23,7 @@ const HeroContainer = styled("div")`
   overflow: hidden;
   position: relative;
   z-index: 1;
-  height: 20%;
+  height: 181px;
   background-image: linear-gradient(63deg, #0028a2, #7640a1);
   display: flex;
   justify-content: center;
