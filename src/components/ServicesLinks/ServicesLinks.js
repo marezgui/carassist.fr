@@ -14,7 +14,7 @@ const StyledPaper = styled(Paper)`
     min-height: 200px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 32px;
     border-radius: 16px;
-    margin-top: -60px;
+    margin-top: -40px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -47,7 +47,7 @@ const StyledTitle = styled("div")`
         font-size: 18px;
         color: rgb(0, 70, 234);
         text-transform: uppercase;
-        font-weight: 900;
+        font-weight: 700;
     }
 `;
 

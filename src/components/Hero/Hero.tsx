@@ -14,8 +14,8 @@ interface Props {
 
 const TitleContainer = styled.div`
   z-index: inherit;
-  font-size: 32px;
-  font-weight: 900;
+  font-size: 28px;
+  font-weight: 700;
   color: white;
 `;
 
@@ -24,7 +24,10 @@ const HeroContainer = styled("div")`
   position: relative;
   z-index: 1;
   height: 181px;
-  background-image: linear-gradient(63deg, #0028a2, #7640a1);
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/car-assist-278209.appspot.com/o/hero.jpeg?alt=media&token=663a0f97-e897-4d65-b13a-fb310e40798f');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
