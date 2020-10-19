@@ -16,7 +16,7 @@ const StyledPaper = styled(Paper)`
     border-radius: 16px;
     margin-top: -60px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;

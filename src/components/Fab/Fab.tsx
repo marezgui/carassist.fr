@@ -8,7 +8,7 @@ const SyledButton = styled(Button).attrs({
   className: "ml-md-4 mb-md-4 ml-3 mb-3 d-flex justify-content-center align-items-center shadow"
 })`
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   bottom: 0;
   height: 50px;
   width: 50px;
