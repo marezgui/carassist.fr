@@ -3,10 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
 import ServiceLink from '../ServiceLink/ServiceLink';
 
-import rentIcon from './rentIcon.svg';
-import towIcon from './towIcon.svg';
-import garageIcon from './garageIcon.svg';
-
+import RentIcon from '../Icons/RentIcon';
+import TowIcon from '../Icons/TowIcon';
+import GarageIcon from '../Icons/GarageIcon';
 
 const StyledPaper = styled(Paper)`
     margin: auto;
@@ -68,7 +67,7 @@ const ProgressBar = styled('div')`
     }
 `;
 
-const servicesLinks = () => {
+const ServicesLinks = () => {
     return (
         <Wrapper>
             <StyledPaper>
@@ -81,27 +80,24 @@ const servicesLinks = () => {
 
                 <LinksContainer>
                     <ServiceLink
-                        icon={rentIcon}
-                        link="/location"
-                        alt="icon de location"
-                        title="Location"
-                        description="Louez des véhicules de prestige ou des utilitaires."
+                        icon={<GarageIcon fontSize="55px" fill="#253b56" />}
+                        link="/garage"
+                        title="Garage"
+                        description="Découvrez notre garage et nos prestations."
                     />
 
                     <ServiceLink
-                        icon={towIcon}
+                        icon={<TowIcon fontSize="75px" fill="#253b56" />}
                         link="/depannage"
-                        alt="icon de depannage"
                         title="Dépannage"
                         description="Estimer le coût de votre remorquage grâce à notre outils en ligne."
                     />
 
                     <ServiceLink
-                        icon={garageIcon}
-                        link="/garage"
-                        alt="icon de garage"
-                        title="Garage"
-                        description="Découvrez notre garage et nos prestations."
+                        icon={<RentIcon fontSize="55px" fill="#253b56" />}
+                        link="/location"
+                        title="Location"
+                        description="Louez des véhicules de prestige ou des utilitaires."
                     />
                 </LinksContainer>
             </StyledPaper>
@@ -109,4 +105,4 @@ const servicesLinks = () => {
     );
 };
 
-export default servicesLinks;
+export default ServicesLinks;

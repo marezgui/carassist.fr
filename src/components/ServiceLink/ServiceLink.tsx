@@ -25,11 +25,7 @@ const StyledIconContainer = styled("div")`
     display: flex;
     justify-content: center;
     align-items: center;
-`;
 
-const StyledIcon = styled("img")`
-    width: 50px;
-    height: 50px;
     margin-right: 25px;
 `;
 
@@ -50,18 +46,26 @@ const StyledText = styled("div")`
     }
 `;
 
-const serviceLink = (props) => {
+interface Props {
+    link: string,
+    icon: any,
+    title: string,
+    description: string
+}
+
+const ServiceLink = (props: Props) => {
+    const {link, icon, title, description} = props;
     return (
-        <StyledCard to={props.link}>
+        <StyledCard to={link}>
             <StyledIconContainer>
-                <StyledIcon src={props.icon} alt={props.alt} title={props.title} />
+                {icon}
             </StyledIconContainer>
             <StyledText >
-                <h2>{props.title}</h2>
-                <p>{props.description}</p>
+                <h2>{title}</h2>
+                <p>{description}</p>
             </StyledText>
         </StyledCard>
     );
 };
 
-export default serviceLink;
+export default ServiceLink;

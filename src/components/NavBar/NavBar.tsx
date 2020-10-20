@@ -44,6 +44,7 @@ const NavBar = () => {
 
           <Navbar.Collapse>
             <Nav navbar className="ml-auto">
+
               <NavItem>
                 <NavLink exact to="/" {...bsNavStyle}>
                   Accueil
@@ -51,8 +52,8 @@ const NavBar = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink to="/location" {...bsNavStyle}>
-                  Location
+                <NavLink to="/garage" {...bsNavStyle}>
+                  Garage
                 </NavLink>
               </NavItem>
 
@@ -63,8 +64,8 @@ const NavBar = () => {
               </NavItem>
 
               <NavItem>
-                <NavLink to="/garage" {...bsNavStyle}>
-                  Garage
+                <NavLink to="/location" {...bsNavStyle}>
+                  Location
                 </NavLink>
               </NavItem>
 

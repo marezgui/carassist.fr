@@ -8,6 +8,7 @@ import ServicesLinks from '../../components/ServicesLinks/ServicesLinks';
 
 const Location = styled(Grid)`
   margin-top: 24px;
+  margin-bottom: 34px;
 `;
 
 const StyledPaper = styled(Paper)`
@@ -32,8 +33,8 @@ const Home = () => {
                 <Address>
                   <h2> Adresse </h2>
                   <p style={{ display: "flex", flexDirection: "column" }}>
-                    <span> 49 RUE DE PONTHIEU </span>
-                    <span> 75008 Paris </span>
+                    <span> 10 Rue Jean-Dominique Fauré </span>
+                    <span> 60160 Montataire </span>
                   </p>
                 </Address>
               </Grid>

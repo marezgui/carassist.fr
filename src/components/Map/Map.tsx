@@ -33,8 +33,8 @@ const Maps = ({ position }: any) => {
 
 Maps.defaultProps = {
   position: {
-    lat: 48.87159,
-    lng: 2.3062
+    lat: 49.25722,
+    lng: 2.43662
   },
 };
 
