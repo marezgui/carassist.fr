@@ -87,7 +87,7 @@ const ServicesLinks = () => {
                     />
 
                     <ServiceLink
-                        icon={<TowIcon fontSize="75px" fill="#253b56" />}
+                        icon={<TowIcon fontSize="69px" fill="#253b56" />}
                         link="/depannage"
                         title="Dépannage"
                         description="Estimer le coût de votre remorquage grâce à notre outils en ligne."
