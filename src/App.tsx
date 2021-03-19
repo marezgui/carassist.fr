@@ -1,34 +1,34 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import Home from './routes/Home/Home';
-import Rent from "./routes/Rent/Rent";
-import Tow from "./routes/Tow/Tow";
-import Garage from "./routes/Garage/Garage";
+import React from 'react'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import Home from './routes/Home/Home'
+import Rent from './routes/Rent/Rent'
+import Tow from './routes/Tow/Tow'
+import Garage from './routes/Garage/Garage'
 
-export default function BasicExample() {
+export default function BasicExample () {
   return (
-    <Router>
+    <BrowserRouter>
       <>
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Home />
           </Route>
-          
-          <Route path="/location">
+
+          <Route path='/location'>
             <Rent />
           </Route>
-          
-          <Route path="/depannage">
+
+          <Route path='/depannage'>
             <Tow />
           </Route>
 
-          <Route path="/garage">
+          <Route path='/garage'>
             <Garage />
           </Route>
 
           <Redirect to='/' />
         </Switch>
       </>
-    </Router>
-  );
+    </BrowserRouter>
+  )
 }

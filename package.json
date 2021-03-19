@@ -36,8 +36,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "standard && react-scripts test",
+    "test:hook": "standard && react-scripts test --watchAll=false --passWithNoTests",
+    "eject": "react-scripts eject",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,5 +57,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^5.1.3",
+    "standard": "*"
   }
 }

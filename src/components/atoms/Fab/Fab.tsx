@@ -1,11 +1,11 @@
-import React from "react";
-import { Button } from 'react-bootstrap';
-import CallIcon from "@material-ui/icons/Call";
-import styled from 'styled-components';
-import { mediaBreakpointUpSm } from "../../../theme/breakpoints";
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import CallIcon from '@material-ui/icons/Call'
+import styled from 'styled-components'
+import { mediaBreakpointUpSm } from '../../../theme/breakpoints'
 
 const SyledButton = styled(Button).attrs({
-  className: "ml-md-4 mb-md-4 ml-3 mb-3 d-flex justify-content-center align-items-center shadow"
+  className: 'ml-md-4 mb-md-4 ml-3 mb-3 d-flex justify-content-center align-items-center shadow'
 })`
   position: fixed;
   z-index: 10;
@@ -23,7 +23,7 @@ const SyledButton = styled(Button).attrs({
     height: 40px;
     padding: 8px 12px;
   `}
-`;
+`
 
 const PhoneNumber = styled.span`
   display: none;
@@ -31,17 +31,17 @@ const PhoneNumber = styled.span`
   ${mediaBreakpointUpSm`
     display: block;
   `}
-`;
+`
 
 const Fab = () => {
   return (
     <SyledButton
-      href="tel:+33766485866"
+      href='tel:+33766485866'
     >
       <CallIcon />
       <PhoneNumber> 07 66 48 58 66 </PhoneNumber>
     </SyledButton>
-  );
+  )
 }
 
-export default Fab;
+export default Fab
