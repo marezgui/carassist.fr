@@ -30,34 +30,6 @@ export const cars = {
            },
            {
              id: "c2",
-             title: "Ford Mustang Us Cabriolet",
-             description:
-               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-             images: [
-               {
-                 alt: "Mustang Cabriolet face avant décapoté.",
-                 src:
-                   "https://firebasestorage.googleapis.com/v0/b/car-assist-278209.appspot.com/o/cars%2Fmustang%2Fmustang_face-opened.jpg?alt=media&token=35e27045-3507-4f59-a51f-6ae84b820211",
-               },
-               {
-                 alt: "Mustang Cabriolet face arrière droite.",
-                 src:
-                   "https://firebasestorage.googleapis.com/v0/b/car-assist-278209.appspot.com/o/cars%2Fmustang%2Fmustang_back-right.jpg?alt=media&token=074a14dc-00bd-4cfd-a6f8-e7c1cec4947e",
-               },
-               {
-                 alt: "Mustang Cabriolet face arrière droite décapoté.",
-                 src:
-                   "https://firebasestorage.googleapis.com/v0/b/car-assist-278209.appspot.com/o/cars%2Fmustang%2Fmustang_back-right-opened.jpg?alt=media&token=dfbadb5f-7405-433f-9099-18050ac8aae6",
-               },
-               {
-                 alt: "Mustang Cabriolet interieur.",
-                 src:
-                   "https://firebasestorage.googleapis.com/v0/b/car-assist-278209.appspot.com/o/cars%2Fmustang%2Fmustang_inside.jpg?alt=media&token=53e13316-149d-4e59-8693-c9b830e3d912",
-               },
-             ],
-           },
-           {
-             id: "c3",
              title: "Range Rover Sport HSE",
              images: [
                {
