@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Car Assist",
+  "name": "Car Assist (Garage, Location, Dépannage)",
   "icons": [
         {
             "src": "/android-chrome-192x192.png",

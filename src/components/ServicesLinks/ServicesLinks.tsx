@@ -3,9 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
 import ServiceLink from '../ServiceLink/ServiceLink';
 
-import RentIcon from '../Icons/RentIcon';
-import TowIcon from '../Icons/TowIcon';
-import GarageIcon from '../Icons/GarageIcon';
+import RentIcon from '../atoms/Icons/RentIcon';
+import TowIcon from '../atoms/Icons/TowIcon';
+import GarageIcon from '../atoms/Icons/GarageIcon';
 
 const StyledPaper = styled(Paper)`
     margin: auto;
@@ -37,7 +37,7 @@ const LinksContainer = styled('div')`
     }
     padding-top: 12px;
     padding-bottom: 20px;
-`; 
+`;
 
 const StyledTitle = styled("div")`
     & > h1 {

@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from '../../Hero/Hero';
 import NavBar from '../../NavBar/NavBar';
 import styled from 'styled-components';
-import Fab from '../../Fab/Fab';
+import Fab from '../../atoms/Fab/Fab';
 import { Container } from '@material-ui/core'
 
 const PageContent = styled(Container)`

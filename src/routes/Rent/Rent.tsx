@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-import PageLayout from "../../components/Layout/Page/Page";
+import PageLayout from "../../components/templates/Page/Page";
 import IconTabs from '../../components/IconTabs/IconTabs';
 import CardList from '../../components/CardList/CardList';
 import { cars } from './data';

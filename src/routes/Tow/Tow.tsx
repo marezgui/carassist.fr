@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PageLayout from "../../components/Layout/Page/Page";
+import PageLayout from "../../components/templates/Page/Page";
 import styled from 'styled-components';
 import SearchBox from '../../components/SearchBox/SearchBox'
 import { Paper, Button } from "@material-ui/core";

@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import styled from 'styled-components';
 // import { toJson } from 'unsplash-js';
 // import { unsplash } from '../../api/unsplash';
-import RoundedSvg from "../Icons/RoundedSvg";
+import RoundedSvg from "../atoms/Icons/RoundedSvg";
 
 const svgString = encodeURIComponent(renderToStaticMarkup(<RoundedSvg />));
 
@@ -74,32 +74,32 @@ const Overlay = styled.div`
 // `;
 
 const Hero = (props: Props) => {
-    const { pageTitle } = props;
-    // const [randomPic, setRandomPic] = useState('');
+  const { pageTitle } = props;
+  // const [randomPic, setRandomPic] = useState('');
 
-    // useEffect(() => {
-    //   unsplash.search
-    //     .photos("cars", 1, 1)
-    //     .then(toJson)
-    //     .then((json) => {
-    //       setRandomPic(json.results[0].urls.regular);
-    //     });
-    // });
+  // useEffect(() => {
+  //   unsplash.search
+  //     .photos("cars", 1, 1)
+  //     .then(toJson)
+  //     .then((json) => {
+  //       setRandomPic(json.results[0].urls.regular);
+  //     });
+  // });
 
-    return (
-      <HeroContainer>
-        <Overlay />
-        {/* <ImgContainer>
+  return (
+    <HeroContainer>
+      <Overlay />
+      {/* <ImgContainer>
           <img
             src="https://source.unsplash.com/AHnhdjyTNGM/1600x900"
             height="100%"
             width="100%"
           />
         </ImgContainer> */}
-        <TitleContainer>{pageTitle}</TitleContainer>
-        <ElipsedBorder />
-      </HeroContainer>
-    );
+      <TitleContainer>{pageTitle}</TitleContainer>
+      <ElipsedBorder />
+    </HeroContainer>
+  );
 };
 
 export default Hero;
