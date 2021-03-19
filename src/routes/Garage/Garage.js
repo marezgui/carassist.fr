@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import InfoGarage from "../../components/InfoGarage/InfoGarage";
 import Hero from "../../components/Hero/Hero";
-import Fab from "../../atoms/Fab/Fab";
+import Fab from "../../components/atoms/Fab/Fab";
 import ImgFrontGarage from '../../components/ImgFrontGarage/ImgFrontGarage';
 import classes from "./Garage.module.css";
 import FbLogo from '../../components/LogoSocialNetwork/facebook.svg';

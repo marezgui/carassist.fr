@@ -14,8 +14,6 @@ const mentions = 'Le tarif de votre remorquage professionel dépend de la distan
 
 const priceDetails = '(Prise en charge 50€ + coefficient kilometrique: Citadine = 1,4€, Berline: 1,6€, 4x4: 2€)';
 
-const libraries = ['places'];
-
 const AutoCompleteOptions = {
   componentRestrictions: { country: ["fr", "be", "it", "ch", "nl", 'de'] },
 };
@@ -23,172 +21,172 @@ const AutoCompleteOptions = {
 let originAutocomplete: any = null;
 let destinationAutocomplete: any = null;
 
-type vehiculeType=  'BASIC' | 'SEDAN' | 'SUV'
+type vehiculeType = 'BASIC' | 'SEDAN' | 'SUV'
 
 const SearchBox = ({ position }: any) => {
-    const [originInput, setOriginInput] = useState('');
-    const [destinationInput, setDestinationInput] = useState('');
-    const [originPlace, setOriginPlace] = useState(null);
-    const [destinationPlace, setDestinationPlace] = useState(null);
-    const [ready, setReady] = useState(false);
-    const [price, setPrice] = useState<number>(0);
-    const [modalShow, setModalShow] = useState(false);
-    const [distance, setDistance] = useState<{} | any>({});
-    const [type, setType] = useState<vehiculeType>("BASIC");
+  const [originInput, setOriginInput] = useState('');
+  const [destinationInput, setDestinationInput] = useState('');
+  const [originPlace, setOriginPlace] = useState(null);
+  const [destinationPlace, setDestinationPlace] = useState(null);
+  const [ready, setReady] = useState(false);
+  const [price, setPrice] = useState<number>(0);
+  const [modalShow, setModalShow] = useState(false);
+  const [distance, setDistance] = useState<{} | any>({});
+  const [type, setType] = useState<vehiculeType>("BASIC");
 
-    useEffect(() => {
-        if (originPlace && destinationPlace) {
-            setReady(true);
-        }
-    }, [originPlace, destinationPlace]);
+  useEffect(() => {
+    if (originPlace && destinationPlace) {
+      setReady(true);
+    }
+  }, [originPlace, destinationPlace]);
 
-    useEffect(() => {
-      if (isNotEmptyObj(distance)) {
-        if (distance.hasOwnProperty("value")) {
-          let price = getPrice(distance.value, type);
-          setPrice(price);
-        }
+  useEffect(() => {
+    if (isNotEmptyObj(distance)) {
+      if (distance.hasOwnProperty("value")) {
+        let price = getPrice(distance.value, type);
+        setPrice(price);
       }
-    }, [distance, type]);
-    
-    const onOriginLoad = (autocomplete: any) => {
-      originAutocomplete = autocomplete;
-    };
+    }
+  }, [distance, type]);
 
-    const onOriginPlaceChanged = () => {
-      if (originAutocomplete !== null) {
-        let place = originAutocomplete?.getPlace();
-        setOriginPlace(place.formatted_address);
-      } else {
-        console.log("Autocomplete is not loaded yet!");
-      }
-    };
+  const onOriginLoad = (autocomplete: any) => {
+    originAutocomplete = autocomplete;
+  };
 
-    const onDestinationLoad = (autocomplete: any) => {
-        destinationAutocomplete = autocomplete;
-    };
+  const onOriginPlaceChanged = () => {
+    if (originAutocomplete !== null) {
+      let place = originAutocomplete?.getPlace();
+      setOriginPlace(place.formatted_address);
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
+  };
 
-    const onDestinationPlaceChanged = () => {
-       if (destinationAutocomplete !== null) {
-         let place = destinationAutocomplete?.getPlace();
-         setDestinationPlace(place.formatted_address);
-       } else {
-         console.log("Autocomplete is not loaded yet!");
-       }
-     };
+  const onDestinationLoad = (autocomplete: any) => {
+    destinationAutocomplete = autocomplete;
+  };
 
-    const getDistance = (response: any, status: any) => {
-        setReady(false);
-        console.log('=>',response, '=>', status);
+  const onDestinationPlaceChanged = () => {
+    if (destinationAutocomplete !== null) {
+      let place = destinationAutocomplete?.getPlace();
+      setDestinationPlace(place.formatted_address);
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
+  };
 
-        if (status === "OK") // 'NOT_FOUND'
-        {
-          setDistance(response.rows[0].elements[0].distance);
-        }
-    };
+  const getDistance = (response: any, status: any) => {
+    setReady(false);
+    console.log('=>', response, '=>', status);
 
-    const handleSubmit = () => {
-        setModalShow(true);
-    };
-    
-    return (
-      <LoadScript googleMapsApiKey={googleMapsApiKey} libraries={libraries}>
-        <Autocomplete
-          options={AutoCompleteOptions}
-          onPlaceChanged={onOriginPlaceChanged}
-          onLoad={onOriginLoad}
-        >
-          <TextField
-            id="1"
-            label="Départ"
-            variant="outlined"
-            style={{ width: "100%" }}
-            onChange={(e) => setOriginInput(e.target.value)}
-          />
-        </Autocomplete>
+    if (status === "OK") // 'NOT_FOUND'
+    {
+      setDistance(response.rows[0].elements[0].distance);
+    }
+  };
 
-        <Autocomplete
-          options={AutoCompleteOptions}
-          onPlaceChanged={onDestinationPlaceChanged}
-          onLoad={onDestinationLoad}
-        >
-          <TextField
-            id="2"
-            label="Arrivé"
-            variant="outlined"
-            style={{ width: "100%", marginTop: "24px" }}
-            onChange={(e) => setDestinationInput(e.target.value)}
-          />
-        </Autocomplete>
+  const handleSubmit = () => {
+    setModalShow(true);
+  };
 
-        <FormControl style={{ minWidth: "150px", marginTop: "24px" }}>
-          <InputLabel htmlFor="uncontrolled-native">Véhicule</InputLabel>
-          <NativeSelect
-            defaultValue={"BASIC"}
-            onChange={(e) => {
-              setType(e.target.value as vehiculeType);
-            }}
-            inputProps={{
-              name: "Type",
-              id: "uncontrolled-native",
-            }}
-          >
-            <option value={"BASIC"}>Citadine</option>
-            <option value={"SEDAN"}>Berline</option>
-            <option value={"SUV"}>Monospace / 4x4</option>
-          </NativeSelect>
-          <FormHelperText> Type de Véhicule </FormHelperText>
-        </FormControl>
+  return (
+    <LoadScript googleMapsApiKey={googleMapsApiKey || ""} libraries={['places']}>
+      <Autocomplete
+        options={AutoCompleteOptions}
+        onPlaceChanged={onOriginPlaceChanged}
+        onLoad={onOriginLoad}
+      >
+        <TextField
+          id="1"
+          label="Départ"
+          variant="outlined"
+          style={{ width: "100%" }}
+          onChange={(e) => setOriginInput(e.target.value)}
+        />
+      </Autocomplete>
 
-        <Button
-          style={{ marginTop: "24px" }}
-          variant="contained"
-          color="primary"
-          fullWidth
-          disabled={!(ready && !!originInput && !!destinationInput)}
-          onClick={handleSubmit}
-        >
-          Calculer le prix
-        </Button>
+      <Autocomplete
+        options={AutoCompleteOptions}
+        onPlaceChanged={onDestinationPlaceChanged}
+        onLoad={onDestinationLoad}
+      >
+        <TextField
+          id="2"
+          label="Arrivé"
+          variant="outlined"
+          style={{ width: "100%", marginTop: "24px" }}
+          onChange={(e) => setDestinationInput(e.target.value)}
+        />
+      </Autocomplete>
 
-        <ScrollDialog
-          open={modalShow}
-          onClose={() => {
-            setModalShow(false);
-            setReady(true);
+      <FormControl style={{ minWidth: "150px", marginTop: "24px" }}>
+        <InputLabel htmlFor="uncontrolled-native">Véhicule</InputLabel>
+        <NativeSelect
+          defaultValue={"BASIC"}
+          onChange={(e) => {
+            setType(e.target.value as vehiculeType);
+          }}
+          inputProps={{
+            name: "Type",
+            id: "uncontrolled-native",
           }}
         >
-          <Alert variant="info">
-            <p> Départ: </p>
-            <p> {originPlace} </p>
-            <p> Destination: </p>
-            <p> {destinationPlace} </p>
-            <p> Type de véhicule: {type === 'SEDAN' ? 'Berline' : type === 'SUV' ? 'Monospace / 4x4' : 'Citadine'} </p>
-          </Alert>
-          <Alert
-            variant="primary"
-            style={{ width: "fit-content", margin: "auto" }}
-          >
-            {`${price} €`}
-          </Alert>
-          <Alert variant="light">
-            <p style={{ fontSize: "12px" }}>{mentions}</p>
-            <p style={{ fontSize: "10px" }}>{priceDetails}</p>
-          </Alert>
-        </ScrollDialog>
+          <option value={"BASIC"}>Citadine</option>
+          <option value={"SEDAN"}>Berline</option>
+          <option value={"SUV"}>Monospace / 4x4</option>
+        </NativeSelect>
+        <FormHelperText> Type de Véhicule </FormHelperText>
+      </FormControl>
 
-        {ready && modalShow && (
-          <DistanceMatrixService
-            options={{
-              origins: [originPlace],
-              destinations: [destinationPlace],
-              travelMode: "DRIVING",
-            }}
-            callback={getDistance}
-          />
-        )}
-      </LoadScript>
-    );
+      <Button
+        style={{ marginTop: "24px" }}
+        variant="contained"
+        color="primary"
+        fullWidth
+        disabled={!(ready && !!originInput && !!destinationInput)}
+        onClick={handleSubmit}
+      >
+        Calculer le prix
+        </Button>
+
+      <ScrollDialog
+        open={modalShow}
+        onClose={() => {
+          setModalShow(false);
+          setReady(true);
+        }}
+      >
+        <Alert variant="info">
+          <p> Départ: </p>
+          <p> {originPlace} </p>
+          <p> Destination: </p>
+          <p> {destinationPlace} </p>
+          <p> Type de véhicule: {type === 'SEDAN' ? 'Berline' : type === 'SUV' ? 'Monospace / 4x4' : 'Citadine'} </p>
+        </Alert>
+        <Alert
+          variant="primary"
+          style={{ width: "fit-content", margin: "auto" }}
+        >
+          {`${price} €`}
+        </Alert>
+        <Alert variant="light">
+          <p style={{ fontSize: "12px" }}>{mentions}</p>
+          <p style={{ fontSize: "10px" }}>{priceDetails}</p>
+        </Alert>
+      </ScrollDialog>
+
+      {ready && modalShow && (
+        <DistanceMatrixService
+          options={{
+            origins: [originPlace],
+            destinations: [destinationPlace],
+            travelMode: "DRIVING",
+          }}
+          callback={getDistance}
+        />
+      )}
+    </LoadScript>
+  );
 };
 
 SearchBox.defaultProps = {

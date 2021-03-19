@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from 'react-bootstrap';
 import CallIcon from "@material-ui/icons/Call";
 import styled from 'styled-components';
-import { mediaBreakpointUpSm } from "../../theme/breakpoints";
+import { mediaBreakpointUpSm } from "../../../theme/breakpoints";
 
 const SyledButton = styled(Button).attrs({
   className: "ml-md-4 mb-md-4 ml-3 mb-3 d-flex justify-content-center align-items-center shadow"
@@ -35,12 +35,12 @@ const PhoneNumber = styled.span`
 
 const Fab = () => {
   return (
-      <SyledButton
-        href="tel:+33766485866"
-      >
-        <CallIcon />
-        <PhoneNumber> 07 66 48 58 66 </PhoneNumber>
-      </SyledButton>
+    <SyledButton
+      href="tel:+33766485866"
+    >
+      <CallIcon />
+      <PhoneNumber> 07 66 48 58 66 </PhoneNumber>
+    </SyledButton>
   );
 }
 

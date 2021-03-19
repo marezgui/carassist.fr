@@ -18,7 +18,7 @@ const options = {
 const Maps = ({ position }: any) => {
 
   return (
-    <LoadScript googleMapsApiKey={googleMapsApiKey}>
+    <LoadScript googleMapsApiKey={googleMapsApiKey || ""}>
       <GoogleMap
         options={options}
         mapContainerStyle={{ width: "100%", height: "100%" }}
